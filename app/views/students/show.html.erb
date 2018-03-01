@@ -1,3 +1,11 @@
 <h1> Profile Page for <%= @student.first_name %> </h1>
 
-<p> Charities  Raising money for and current amount<p> 
+<p> Charities  Raising money for and current amount<p>
+
+<% @student.charities.each do |c| %>
+  <div class= "charity_box">
+    <%= c.name %>
+    <p><%= c.description %></p>
+    <%= button_to "Pledge" %>
+  </div>
+<% end %>

@@ -51,3 +51,11 @@ teachers
 
 guest/donor
   belongs_to user
+
+
+  class StudentCharity < ApplicationRecord
+    belongs_to :student
+    belongs_to :charity
+
+
+  end

@@ -28,3 +28,18 @@ Teacher.create([
     {email: "test@test.com", password: "testtest", password_confirmation: "testtest"}
 
   ])
+
+    Charity.create([
+      { name: "Wounded Warrior Project",
+        description: "Wounded Warrior Project® (WWP) serves veterans and service members who incurred a physical or mental injury, illness, or wound, co-incident to their military service on or after September 11, 2001 and their families. On that date, America watched in horror as approximately 3,000 people died including hundreds of firefighters and rescue workers. Many warriors note a sense of duty to volunteer for the military following these tragic events.",
+        link: "https://www.woundedwarriorproject.org/"},
+      { name: "Orca",
+        description: "ORCA believes that the only way to protect our whales and dolphins is to identify areas where they’re vulnerable and study their habitats. That way, we can protect these places by changing the way we use them. That includes shipping, fishing, noise pollution, marine litter and more. Best of all, this information can be shared and used across the globe. And that’s the local solution to the global problem.",
+        link: "http://www.orcaweb.org.uk"}
+      ])
+
+      Studentcharity.create([
+        {student_id: 1, charity_id: 1},
+        {student_id: 2, charity_id: 2},
+        {student_id: 3, charity_id: 1}
+      ])
