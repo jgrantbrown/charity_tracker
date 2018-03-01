@@ -1,0 +1,9 @@
+<h1> ALL of the teachers </h1>
+
+<% @teachers.each do |t| %>
+<p><%= t.first_name %> <%= t.first_name %></p>
+<p> Students: <%= t.students.count %></p>
+
+<%= button_to "Students List", teacher_path(t), {method: 'get', class: "some-class"} %>
+
+<% end %>
