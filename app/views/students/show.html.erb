@@ -6,6 +6,8 @@
   <div class= "charity_box">
     <%= c.name %>
     <p><%= c.description %></p>
-    <%= button_to "Pledge" %>
+    <p> Goal:</p>
+    <p> Amount Pledged:</p>
+    <%=  button_to "Pledge", root_path, {method: 'get', class: "pledge_btn" } %>
   </div>
 <% end %>
