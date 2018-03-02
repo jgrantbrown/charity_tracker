@@ -10,4 +10,8 @@ class Student < ApplicationRecord
       end
   end
 
+  def recent_pledges
+      Pledge.where(student_id: self.id).last(3)
+  end
+
 end

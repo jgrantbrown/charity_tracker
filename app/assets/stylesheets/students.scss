@@ -1,11 +1,26 @@
 // Place all the styles related to the students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.student_section{
+background-color: #787f98;
+width: 100%;
 
+}
+// Want to display one to the left other to the right display:inline is not the answer?
 .charity_box{
-  padding: 1%;
-  width: 10%;
-  background-color: yellow;
+  width: 33%;
+  background-color: #b2ad7f;
   border-style: solid;
-  text-align: center,
+  text-align: center;
+
+}
+
+.recent_pledges{
+  padding: 1%;
+  width: 33%;
+  background-color: #878f99;
+  border-style: solid;
+  text-align: center;
+  margin: 5px;
+
 }

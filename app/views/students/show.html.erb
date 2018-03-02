@@ -1,19 +1,36 @@
 <h1> Profile Page for <%= @student.first_name %> </h1>
+<% if current_user == @student %>
+  <%=  button_to "Edit Profile" %>
+<% end %>
 
 <p> Charities  Raising money for and current amount<p>
 
-<% @student.charities.each do |c| %>
-  <div class= "charity_box">
-    <%= c.name %>
-    <p><%= c.description %></p>
-    <p> Goal:</p>
-    <!-- MAy need to chang this for matching amount to each charity of student  -->
-    <p> Amount Pledged: $<%= @student.amount_pledged %></p>
-    <div>
-    <%=  button_to "Pledge", root_path, {method: 'get', class: "pledge_btn" } %>
-    <%=  button_to "Pledge", root_path, {method: 'get', class: "pledge_btn" } %>
-    <%=  button_to "Pledge", root_path, {method: 'get', class: "pledge_btn" } %>
-    <%=  button_to "Pledge", root_path, {method: 'get', class: "pledge_btn" } %>
+<div class = "student_section">
+  <% @student.charities.each do |c| %>
+    <div class= "charity_box">
+      <%= c.name %>
+      <p><%= c.description %></p>
+      <p> Goal:</p>
+      <!-- MAy need to chang this for matching amount to each charity of student  -->
+      <p> Amount Pledged: $<%= @student.amount_pledged %></p>
+
+      <% if user_signed_in? %>
+        <div>
+          <%=  button_to "Pledge $5", pledges_path, {method: 'post', class: "pledge_btn" , params:{pledge:{student_id: @student.id, charity_id: c.id, user_id: current_user, amount: 5} }} %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class= 'recent_pledges'>
+    <h2>Recent Pledges:</h2>
+      <% @student.recent_pledges.each do |p| %>
+        <ul>  <%= p.user.email %> Pledged: <%= p.amount %>
+          <% if current_user == p.user %>
+          add comment
+          <% end %>
+          </ul>
+      <% end %>
   </div>
-  </div>
-<% end %>
+
+</div>

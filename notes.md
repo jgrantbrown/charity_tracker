@@ -59,3 +59,10 @@ guest/donor
 
 
   end
+
+
+  COLOR PALLETTE IDEAS
+  background:#a2b9bc
+  background:#b2ad7f
+  background:#878f99
+  background:#6b5b95
