@@ -1,9 +1,11 @@
 <h1> ALL of the teachers </h1>
 
-<% @teachers.each do |t| %>
-<p><%= t.first_name %> <%= t.first_name %></p>
-<p> Students: <%= t.students.count %></p>
 
-<%= button_to "Students List", teacher_path(t), {method: 'get', class: "some-class"} %>
-
-<% end %>
+  <% @teachers.each do |t| %>
+    <div class = "teacher_groups">
+      <p><%= t.first_name %> <%= t.last_name %></p>
+      <p> Add total amount of pledges form all students of this teacher </p>
+      <p> Students: <%= t.students.count %></p>
+      <%= button_to "Students List", teacher_path(t), {method: 'get', class: "some-class"} %>
+    </div>
+  <% end %>

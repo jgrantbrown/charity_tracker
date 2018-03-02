@@ -7,7 +7,13 @@
     <%= c.name %>
     <p><%= c.description %></p>
     <p> Goal:</p>
-    <p> Amount Pledged:</p>
+    <!-- MAy need to chang this for matching amount to each charity of student  -->
+    <p> Amount Pledged: $<%= @student.amount_pledged %></p>
+    <div>
     <%=  button_to "Pledge", root_path, {method: 'get', class: "pledge_btn" } %>
+    <%=  button_to "Pledge", root_path, {method: 'get', class: "pledge_btn" } %>
+    <%=  button_to "Pledge", root_path, {method: 'get', class: "pledge_btn" } %>
+    <%=  button_to "Pledge", root_path, {method: 'get', class: "pledge_btn" } %>
+  </div>
   </div>
 <% end %>

@@ -1,10 +1,9 @@
 <%= @teacher.first_name %> <%= @teacher.last_name %>'s  Class
 
-<ol>
+
   <% @teacher.students.each do |s| %>
-  <div><li>
+  <div class= 'student_box'>
       <%= s.first_name %> <%= s.last_name %>
       <%= button_to "Students Profile", student_path(s), {method: 'get', class: "some-class"} %>
-    </li></div>
+    </div>
   <% end %>
-</ol>
