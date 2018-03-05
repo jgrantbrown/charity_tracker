@@ -4,65 +4,58 @@ https://api.data.charitynavigator.org/v2
 
 Basic concept schools run charity drives. Students choose a charity to raise funds for. This organizes the views for the school to see all charties raising money and total. Lists classroom index of students and charties.
 
-Models
-Charity
-id:, :name
-  has_many student_charity
-  has_many pledges
-  has_many students through: student_charity
-
-student_charity
-id: , student_id, charity_id
+define what a guest/user/giver? is create model and migration
+    has_many pledges
+    has_many comments? through?
 
 
 
- ISSUE: student promotes charity , and other users pledges
-user/pledge
- id: , pledge_id , user_id, charity_id, amount, student_id
-  belongs_to pledge
-  belongs_to user
-  belongs_to charity
-
-users
-  types: teacher, student, guest/parent/donor, admin
-  has_many pledges
-  has_one teacher
-  has_one student
-  has_one guest
-
-students
-  id:, first_name: last_name:,  user_id, teacher_id
-  belongs_to :teacher
-  has_many charities through: student_charities
-  has_many student_charities
-  belongs_to :user
-
-students_teacher
-  id:, student_id:, teacher_id
-  belongs_to  :student
-  belongs_to :teacher
-
-teachers
-  id, user_id,
-  belongs_to user
-  has_many students_teachers
-  has_many :students through students_teacher
-  has_many charities through: students ??
-
-guest/donor
-  belongs_to user
-
-
-  class StudentCharity < ApplicationRecord
-    belongs_to :student
-    belongs_to :charity
-
-
-  end
-
-
+Add comment to pledge
+  other users can like comment and then it displays higher
+  list all comments and pledges for students/1/charity/1
+Choose from several pledge amounts and custom amount. Autheniticate as number
+Student can edit profile?
+Teacher can add user and remove student from profile
   COLOR PALLETTE IDEAS
   background:#a2b9bc
   background:#b2ad7f
   background:#878f99
   background:#6b5b95
+
+Add a nested form to add Pledge and coment for user on a student page. Able to set pledge attriubute anonymous if box checked.
+
+CUrrent pledge button
+  <%=  button_to "Pledge $5", pledges_path, {method: 'post', class: "pledge_btn" , params:{pledge:{student_id: @student.id, charity_id: c.id, user_id: current_user, amount: 5} }} %>
+
+
+CODE I WANT
+set @pledge = Pledge.new in student show controller
+
+student show page:
+<% @student.charities.each do |c| %>
+<%= form_for(@pledge), url: pledges_path, html: {class: "nifty_form"} do |f| %>
+
+** NEED TO SETUP ATTRIBUTES MODELS ETC FOR ANONYMOUS AND COMMENTS
+  <%= check_box_tag(:anonymous, "anonymous") %>
+  <%= label_tag(:anonymous, "Pledge as Anonymous") %>
+
+  <%= label_tag(:amount, "Other Amount") %>
+  <%= number_field(:amount, :amount, min: 0)%>
+        <%= hidden_field_tag(:charity_id, c.id, ) %>
+        <%= hidden_field_tag(:student_id, @student.id) %>
+        <%= hidden_field_tag(:user_id ,current_user) %>
+        <%= hidden_field_tag(:amount, "5") %>
+  <%= f.submit "Pledge $5" %>
+<% end %>
+<% end %>
+
+
+<% @student.charities.each do |c| %>
+<%= form_for @pledge, url: pledges_path, html: {class: "nifty_form"} do |f| %>
+  <%= hidden_field_tag(:charity_id, c.id, ) %>
+  <%= hidden_field_tag(:student_id, @student.id) %>
+  <%= hidden_field_tag(:user_id ,current_user) %>
+  <%= hidden_field_tag(:amount, "5") %>
+  <%= f.submit "Pledge $5" %>
+<% end %>
+<% end %>

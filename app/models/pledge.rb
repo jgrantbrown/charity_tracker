@@ -1,6 +1,10 @@
 class Pledge < ApplicationRecord
-  belongs_to :student
   belongs_to :user
-  belongs_to :charity
+  belongs_to :studentcharity
 
+ validates :amount, presence: true
+ validates :amount, numericality: { greater_than: 0 }
+
+  def create
+  end
 end

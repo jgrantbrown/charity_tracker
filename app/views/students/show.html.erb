@@ -12,25 +12,36 @@
       <p><%= c.description %></p>
       <p> Goal:</p>
       <!-- MAy need to chang this for matching amount to each charity of student  -->
-      <p> Amount Pledged: $<%= @student.amount_pledged %></p>
+      <!-- <p> Amount Pledged: $< @student.amount_pledged(c) %></p> -->
 
       <% if user_signed_in? %>
-        <div>
-          <%=  button_to "Pledge $5", pledges_path, {method: 'post', class: "pledge_btn" , params:{pledge:{student_id: @student.id, charity_id: c.id, user_id: current_user, amount: 5} }} %>
-        </div>
+
+          <%= form_for @pledge do |f| %>
+            Amount:
+            <%=  text_field(:pledge, :amount) %>
+              <%= hidden_field( :pledge,:user_id, :value => current_user.id ) %>
+              <%= hidden_field( :studentcharities_attributes,:student_id, :value => @student.id ) %>
+              <%= hidden_field(:studentcharities_attributes,:charity_id, :value => c.id) %>
+            <%= f.submit " Make Pledge" %>
+          <% end %>
+
+      <% else %>
+          <%= button_to "Sign Up to Pledge", new_user_registration_path,{method: 'get', class: "pledge_btn"} %>
       <% end %>
+
     </div>
   <% end %>
 
-  <div class= 'recent_pledges'>
-    <h2>Recent Pledges:</h2>
-      <% @student.recent_pledges.each do |p| %>
-        <ul>  <%= p.user.email %> Pledged: <%= p.amount %>
-          <% if current_user == p.user %>
-          add comment
-          <% end %>
+    <!-- <div class= 'recent_pledges'>
+          <h2>Recent Pledges:</h2>
+        < @student.recent_pledges.each do |p| >
+          <ul>
+            < p.user.email %> Pledged: <%= p.amount >
+          < if current_user == p.user >
+            add comment
+          < end >
           </ul>
-      <% end %>
-  </div>
+        < end >
+      </div> -->
 
 </div>

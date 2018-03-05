@@ -22,13 +22,11 @@ ActiveRecord::Schema.define(version: 20180302131318) do
 
   create_table "pledges", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "charity_id"
-    t.integer "student_id"
+    t.integer "studentcharities_id"
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["charity_id"], name: "index_pledges_on_charity_id"
-    t.index ["student_id"], name: "index_pledges_on_student_id"
+    t.index ["studentcharities_id"], name: "index_pledges_on_studentcharities_id"
     t.index ["user_id"], name: "index_pledges_on_user_id"
   end
 
