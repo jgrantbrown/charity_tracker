@@ -4,6 +4,7 @@
 .student_section{
 background-color: #787f98;
 width: 100%;
+padding: 1%;
 
 }
 // Want to display one to the left other to the right display:inline is not the answer?
@@ -12,7 +13,8 @@ width: 100%;
   background-color: #b2ad7f;
   border-style: solid;
   text-align: center;
-
+  margin: 5px;
+  padding: 1%;
 }
 
 .recent_pledges{

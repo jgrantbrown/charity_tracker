@@ -5,5 +5,5 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @pledge = Pledge.new
   end
+  
 end
- 

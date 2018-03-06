@@ -46,15 +46,15 @@ Teacher.create([
 
 Pledge.create([
   {user_id: 4,
-   studentcharities_id: 1,
+   studentcharity_id: 1,
    amount: 5
  },
   {user_id: 6,
-   studentcharities_id: 2,
+   studentcharity_id: 2,
    amount: 10
   },
   {user_id: 7,
-   studentcharities_id: 3,
+   studentcharity_id: 3,
    amount: 45
   }
   ])
