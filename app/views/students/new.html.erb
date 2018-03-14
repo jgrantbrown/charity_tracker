@@ -1,0 +1,23 @@
+<h1> Add a student Here </h1>
+
+<%= form_for @student, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <p><%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+
+
+
+<!-- How do I add a field for email to then check if user exists w email or creat a new user and student -->
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+
+    <%= f.submit "Add Student" %>
+
+<% end %>

@@ -34,6 +34,7 @@ gem 'devise'
 # ADd functionallity omniauth
 gem 'omniauth-facebook'
 gem 'omniauth'
+gem 'dotenv-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

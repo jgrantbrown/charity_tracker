@@ -58,3 +58,9 @@ Pledge.create([
    amount: 45
   }
   ])
+
+Comment.create([
+  {user_id: 4,
+    pledge_id: 1,
+    content: "great Job!"}
+  ])

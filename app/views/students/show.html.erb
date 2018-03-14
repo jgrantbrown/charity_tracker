@@ -6,6 +6,7 @@
 <p> Charities  Raising money for and current amount<p>
 
 <div class = "student_section">
+  <div class = "boxes">
   <% @student.charities.each do |c| %>
     <div class= "charity_box">
       <%= c.name %>
@@ -14,15 +15,22 @@
       <!-- MAy need to chang this for matching amount to each charity of student  -->
       <p> Amount Pledged:
       $<%= @student.amount_pledged(c) %></p>
-
       <% if user_signed_in? %>
           <%= form_for @pledge do |f| %>
+            Comment:
+            <!-- Add Comment? -->
+            <%= text_area(:comment, :content) %>
+            <%= hidden_field( :comment, :user_id, :value => current_user.id ) %>
+
             Amount:
             <%=  text_field(:pledge, :amount) %>
+            <div class="error_message"><%= @pledge.errors.full_messages if !@pledge.errors.empty? %>
+              </div>
               <%= hidden_field( :pledge, :user_id, :value => current_user.id ) %>
               <%= hidden_field( :studentcharities_attributes,:student_id, :value => @student.id ) %>
               <%= hidden_field(:studentcharities_attributes,:charity_id, :value => c.id) %>
             <%= f.submit " Make Pledge" %>
+
           <% end %>
       <% else %>
           <%= button_to "Sign Up to Pledge", new_user_registration_path,{method: 'get', class: "pledge_btn"} %>
@@ -37,10 +45,18 @@
           <ul>
             <%= p.user.email %> Pledged: $<%= p.amount %>
           <% if current_user == p.user %>
-            add comment
+            <% p.comments.each do |comment| %>
+                <% if comment.content != nil %>
+                  <!-- THis should hide commnet if empty? -->
+                  Comment: <%= comment.content %>
+                <% end %>
+            <% end %>
           <% end %>
           </ul>
         <% end %>
       </div>
+
+</div>
+
 
 </div>

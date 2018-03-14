@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302131318) do
+ActiveRecord::Schema.define(version: 20180306180643) do
 
   create_table "charities", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20180302131318) do
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "pledge_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pledge_id"], name: "index_comments_on_pledge_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "pledges", force: :cascade do |t|

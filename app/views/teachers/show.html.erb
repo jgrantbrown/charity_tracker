@@ -4,21 +4,13 @@
   <% @teacher.students.each do |s| %>
   <div class= 'student_box'>
       <%= s.first_name %> <%= s.last_name %>
-      <%= button_to "Students Profile", student_path(s), {method: 'get', class: "some-class"} %>
+      <%= button_to "Students Profile", teacher_student_path(s), {method: 'get', class: "some-class"} %>
     </div>
   <% end %>
 
 
 
-  <!-- CODE I WANT
-   if current_user.id == @teacher.id
-      Add  nested form to a create or add a student to teacher
-      create writter in teachers for student_attributes
 
-       form_for @teacher do |f|
-        f.text_field  teacher[student_attributes][0][first_name]
-        f.text_field  teacher[:student_attributes][0][last_name]
-       f.submit "Add Student"
-       end
-   end
--->
+   <% if current_user.id == @teacher.user_id %>
+       <%= link_to "Add Student", new_teacher_student_path(@teacher) %>
+   <% end %>
