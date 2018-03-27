@@ -1,33 +1,34 @@
 class PledgesController < ApplicationController
 
- attr_accessor :student_charities
+ attr_accessor :student_id,:charity_id
 
   def create
-    @pledge = Pledge.new(pledge_params)
-    studentcharity = Studentcharity.find_or_create_by(:student_id => params[:studentcharities_attributes][:student_id], :charity_id =>
-    params[:studentcharities_attributes][:charity_id])
-    @pledge.studentcharity_id = studentcharity.id
+    @pledge = Pledge.new
+    student = Student.find(params[:student][:student_id])
+    charity =Charity.find(params[:charity][:charity_id])
+    @pledge.amount= params[:amount]
+    @pledge.student_id = student.id
+    @pledge.charity_id = charity.id
+    @pledge.user_id=params[:comment][:user_id]
     if @pledge.save
         comment = Comment.new(comment_params)
         if comment.content != nil
           comment.pledge_id = @pledge.id
           comment.save
         end
-        redirect_to student_path( params[:studentcharities_attributes][:student_id])
+        redirect_to student_path( params[:student][:student_id])
     else
-      # how to I carry the error on @pledge to the redirect?
-      @student = Student.find(params[:studentcharities_attributes][:student_id])
-      @pledge 
+      @student = Student.find(params[:student][:student_id])
+      @pledge
       @comment = Comment.new
       render "students/show"
       end
   end
 
-  private
+  
 
-    def pledge_params
-      params.require(:pledge).permit(:amount, :user_id)
-    end
+  private
+  # Had a pledge_params but issues with hash passing in params
 
     def comment_params
       params.require(:comment).permit(:content, :user_id)

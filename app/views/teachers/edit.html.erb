@@ -1,0 +1,17 @@
+<h1> Add a student to your class: </h1>
+
+<%= form_for @teacher, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
+  <% Student.all.where("teacher_id != ?", params[:id]).each do |student| %>
+    <p><%= check_box_tag 'student_ids[]', student.id %>
+      Student Name: <%= student.last_name%>, <%= student.first_name %>,
+       Current Teacher: <%=student.teacher.last_name %>
+    </p>
+  <% end %>
+    <%= f.submit "Add Student" %>
+<% end %>
+
+<h1> Current Students: </h1>
+<% Student.all.where("teacher_id = ?", params[:id]).each do |student| %>
+
+  <li><%= student.last_name%>, <%= student.first_name %></li>
+<% end %>

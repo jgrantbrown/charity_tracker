@@ -23,13 +23,16 @@
             <%= hidden_field( :comment, :user_id, :value => current_user.id ) %>
 
             Amount:
-            <%=  text_field(:pledge, :amount) %>
+            <!-- USED MAX NUMBER TO PREVENT "BIGNUM" errors -->
+            <!--  Expected below to pass params[:pledge][:amount] not working -->
+            <!--<  number_field_tag(:pledge,:amount, min:0, max:4611686018427387903 ) >  -->
+            <%=  number_field_tag(:amount,:amount_pledged, min:0, max:4611686018427387903 ) %>
             <div class="error_message"><%= @pledge.errors.full_messages if !@pledge.errors.empty? %>
               </div>
-              <%= hidden_field( :pledge, :user_id, :value => current_user.id ) %>
-              <%= hidden_field( :studentcharities_attributes,:student_id, :value => @student.id ) %>
-              <%= hidden_field(:studentcharities_attributes,:charity_id, :value => c.id) %>
-            <%= f.submit " Make Pledge" %>
+
+              <%= hidden_field(:student,:student_id, :value => @student.id ) %>
+              <%= hidden_field(:charity,:charity_id, :value => c.id) %>
+            <%= f.submit "Make Pledge" %>
 
           <% end %>
       <% else %>

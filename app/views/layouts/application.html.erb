@@ -17,6 +17,10 @@
 <nav>
     <%= link_to('Home', root_path) %>
     <%= link_to('Teachers', teachers_path) %>
+    <% if user_signed_in? %>
+      <%= link_to("My Profile", user_path(current_user)) %>
+    <% end %>
+
 
     <div class='session_status'>
       <% if user_signed_in? %>
