@@ -2,3 +2,20 @@
 
 <h1> User Profile Page </h1>
   <%= @user.email %>
+  <div>
+  <p>Your current role is:
+    <%= @user.user_role? %>
+  </p>
+  </div>
+  <!-- Only access if you are the user?  -->
+  <!-- Add a Student/teacher or create one -->
+<div>
+  <form>
+    Add your details:
+    First Name:
+    Last Name:
+    Set my Role as student/teacher:
+    []teacher
+    []student
+  </form>
+</div>

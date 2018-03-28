@@ -13,6 +13,23 @@ class User < ApplicationRecord
     #   User.where(:type == "student")
     # end
 
+    def user_role?
+      if self.is_teacher?
+       '<p>Teacher</p>'.html_safe
+      elsif self.is_student?
+        '<p>Student</p>'.html_safe
+      else
+        '<p>Guest</p>'.html_safe
+      end
+    end
+
+    def is_teacher?
+      Teacher.find_by(user_id: self.id)
+    end
+
+    def is_student?
+      Student.find_by(user_id: self.id)
+    end
 
 
     def self.new_with_session(params, session)
