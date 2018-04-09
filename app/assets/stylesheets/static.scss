@@ -1,3 +1,23 @@
 // Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.homelogo{
+  color: gray;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+   background:rgba(255,255,255,0.5);
+   position: fixed;
+   top: 10;
+   left: 5;
+   z-index: 100;
+
+  background: url("people-woman-coffee-meeting.jpg") no-repeat ;
+  background-size: contain;
+}
+
+.hometext{
+  background-color:white;
+  color: gray;
+  text-align: center;
+}

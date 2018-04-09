@@ -10,26 +10,27 @@
 
   <body>
 
-
       <!-- Devise flash messages -->
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-<nav>
-    <%= link_to('Home', root_path) %>
-    <%= link_to('Teachers', teachers_path) %>
+<nav class="navbar">
+    <uL>
+      <li><%= link_to('Home', root_path) %></li>
+    <li><%= link_to('Teachers', teachers_path) %></li>
     <% if user_signed_in? %>
-      <%= link_to("My Profile", user_path(current_user)) %>
+      <li><%= link_to("My Profile", user_path(current_user)) %></li>
     <% end %>
 
-
     <div class='session_status'>
+
       <% if user_signed_in? %>
-         Glad to have <%= current_user.email %> visting!
-        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        <li>Glad to have <%= current_user.email %> visting!
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
       <% else %>
-        <%= link_to('Login', new_user_session_path)  %>
-        <%= link_to('Sign up', new_user_registration_path)  %>
+        <li><%= link_to('Login', new_user_session_path)  %></li>
+      <li><%= link_to('Sign up', new_user_registration_path)  %></li>
       <% end %>
+    </ul>
     </div>
 </nav>
 

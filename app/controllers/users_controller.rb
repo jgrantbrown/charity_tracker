@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   def show
       @user = User.find(params[:id])
-      Teacher.find_by(user_id: @user.id)
-      Student.find_by(user_id: @user.id)
-
     end
 
     def index
