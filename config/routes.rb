@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :pledges, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  root to: "static#home"
+
  get '/auth/facebook/callback' => 'sessions#create'
 
  get 'most_pledges', to: 'pledges#most_pledges'

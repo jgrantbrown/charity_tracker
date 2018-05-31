@@ -4,12 +4,10 @@ class PledgesController < ApplicationController
 
   def create
     @pledge = Pledge.new
-    student = Student.find(params[:student][:student_id])
-    charity =Charity.find(params[:charity][:charity_id])
-    @pledge.amount= params[:amount]
-    @pledge.student_id = student.id
-    @pledge.charity_id = charity.id
-    @pledge.user_id=params[:comment][:user_id]
+    @pledge.amount = params[:amount]
+    @pledge.student_id = params[:student][:student_id]
+    @pledge.charity_id = params[:charity][:charity_id]
+    @pledge.user_id = current_user.id
     if @pledge.save
         comment = Comment.new(comment_params)
         if comment.content != nil
@@ -25,13 +23,40 @@ class PledgesController < ApplicationController
       end
   end
 
-  
 
   private
-  # Had a pledge_params but issues with hash passing in params
+
 
     def comment_params
       params.require(:comment).permit(:content, :user_id)
     end
 
 end
+
+
+
+
+# def create
+#   @pledge = Pledge.new(pledge_params)
+#   binding.pry
+#   @pledge.amount = params[:amount]
+#   @pledge.user_id = current_user.id
+#   if @pledge.save
+#       comment = Comment.new(comment_params)
+#       if comment.content != nil
+#         comment.pledge_id = @pledge.id
+#         comment.save
+#       end
+#       redirect_to student_path( params[:student][:student_id])
+#   else
+#     @student = Student.find(params[:student][:student_id])
+#     @pledge
+#     @comment = Comment.new
+#     render "students/show"
+#     end
+# end
+
+# Had a pledge_params but issues with hash passing in params
+  # def pledge_params
+  #   params.require(:pledge).permit(pledge:[:student_id,:charity_id])
+  # end
