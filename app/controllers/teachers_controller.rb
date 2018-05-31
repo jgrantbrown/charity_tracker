@@ -1,7 +1,7 @@
 class TeachersController < ApplicationController
   def index
       @teachers = Teacher.all
-
+       render  :layout => false
   end
 
   def show
