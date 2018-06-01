@@ -1,7 +1,8 @@
 class TeachersController < ApplicationController
   def index
       @teachers = Teacher.all
-       render  :layout => false
+       # render  :layout => false
+       render json: @teachers
   end
 
   def show
