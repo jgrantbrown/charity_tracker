@@ -1,0 +1,122 @@
+/* line 4, /Users/jasonbrown/Learn-Code/flatirononline/ProjectPortfolio/rails_project/charity_tracker/app/assets/stylesheets/static.scss */
+.homelogo {
+  color: gray;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  top: 10;
+  left: 5;
+  z-index: 100;
+  background: url("people-woman-coffee-meeting.jpg") no-repeat;
+  background-size: contain;
+}
+
+/* line 19, /Users/jasonbrown/Learn-Code/flatirononline/ProjectPortfolio/rails_project/charity_tracker/app/assets/stylesheets/static.scss */
+.hometext {
+  background-color: white;
+  color: gray;
+  text-align: center;
+}
+/* line 8, /Users/jasonbrown/Learn-Code/flatirononline/ProjectPortfolio/rails_project/charity_tracker/app/assets/stylesheets/students.scss */
+.student_section {
+  background-color: #787f98;
+  width: 100%;
+  padding: 1%;
+}
+
+/* line 22, /Users/jasonbrown/Learn-Code/flatirononline/ProjectPortfolio/rails_project/charity_tracker/app/assets/stylesheets/students.scss */
+.charity_box {
+  width: 25%;
+  background-color: #b2ad7f;
+  border-style: solid;
+  text-align: center;
+  margin-left: 33%;
+  margin-bottom: 5px;
+  padding: 1%;
+}
+
+/* line 32, /Users/jasonbrown/Learn-Code/flatirononline/ProjectPortfolio/rails_project/charity_tracker/app/assets/stylesheets/students.scss */
+.recent_pledges {
+  padding: 1%;
+  width: 25%;
+  background-color: #878f99;
+  border-style: solid;
+  text-align: center;
+  margin-left: 33%;
+  margin-bottom: 5px;
+}
+/* line 4, /Users/jasonbrown/Learn-Code/flatirononline/ProjectPortfolio/rails_project/charity_tracker/app/assets/stylesheets/teachers.scss */
+.teacher_groups {
+  padding: 1%;
+  width: 10%;
+  background-color: #b2ad7f;
+  border-style: solid;
+  text-align: center;
+  margin: 10px;
+}
+
+/* line 13, /Users/jasonbrown/Learn-Code/flatirononline/ProjectPortfolio/rails_project/charity_tracker/app/assets/stylesheets/teachers.scss */
+.student_box {
+  padding: 1%;
+  width: 10%;
+  background-color: #6b5b95;
+  border-style: solid;
+  text-align: center;
+  margin: 10px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+body{ background:#a2b9bc
+}
+
+.session_status{
+  float: right
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #878f99;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+
+/* COLOR PALLETTE IDEAS
+background:#a2b9bc
+background:#b2ad7f
+background:#878f99
+background:#6b5b95 */

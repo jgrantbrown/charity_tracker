@@ -14,5 +14,8 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
+
+//= require handlebars
 //= require teachers
-//= require_tree .
+//= require_tree ./templates
+//= require_tree
