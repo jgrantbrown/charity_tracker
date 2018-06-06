@@ -44,7 +44,7 @@ gem 'dotenv-rails'
 # gem 'capistrano-rails', group: :development
 
 
-  gem 'handlebars_assets'
+gem 'handlebars_assets'
 
 
 group :development, :test do

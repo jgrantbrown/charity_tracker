@@ -15,6 +15,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @pledge = Pledge.new
     @comment = Comment.new
+    render json: @student
   end
 
 private

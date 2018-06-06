@@ -13,9 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require rails-ujs
-
-
+//= require handlebars.runtime
 //= require handlebars
 //= require teachers
+//= require students
+
+
 //= require_tree ./templates
 //= require_tree

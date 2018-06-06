@@ -1,8 +1,8 @@
 class TeachersController < ApplicationController
   def index
       @teachers = Teacher.all
-       # render  :layout => false
-         render json: @teachers
+       
+      render json: @teachers
     # respond_to do |format|
     #   format.html { render :index }
     #   format.json { render json: @teachers }
