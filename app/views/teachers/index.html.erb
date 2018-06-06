@@ -1,10 +1,24 @@
 
-<div class = “project-results”>
+<div class =“project-results”>
 </div>
 
+<script id="index-template" type="text/x-handlebars-template">
+  <div class="projectIndexSection">
+      <ul>
 
+       {{#each teachers}}
+          <li>{{first_name}}</li>
+          <div class = "teacher_groups">
+            <p>{{first_name}} {{last_name}} </p>
+            <p> Add total amount of pledges form all students of this teacher </p>
+            <p> Students:  {{students.count}} </p>
+            <%= button_to "Students List", teacher_path(), {method: 'get', class: "some-class"} %>
+          </div>
+      {{/each}}
+      </ul>
 
-
+  </div>
+</script>
 
 <h1> ALL of the teachers </h1>
 
@@ -25,15 +39,3 @@
 <!-- Scoped class method for the charity with the most_money pledged -->
 See the chariyt with the most money pledged
 <%= link_to "Most Money Pledged" , {:action=>"most_pledges", :controller=>"pledges"} %>
-
-<script id="index-template" type="text/x-handlebars-template" >
-  <div class="projectIndexSection">
-      <ul>
-        Hello
-      <!-- {{#each}}
-          <li>{{this}}</li>
-      {{/each}} -->
-      </ul>
-
-  </div>
-</script>
