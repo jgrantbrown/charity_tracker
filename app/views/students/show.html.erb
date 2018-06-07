@@ -49,18 +49,18 @@
           <h2>Recent Pledges:</h2>
         <% @student.recent_pledges.each do |p| %>
           <ul>
-            <%= p.user.email %> Pledged: $<%= p.amount %>
-          <% if current_user == p.user %>
-            <% p.comments.each do |comment| %>
+              <%= p.user.email %> Pledged: $<%= p.amount %>
+              <% if current_user == p.user %>
+                <% p.comments.each do |comment| %>
                 <% if comment.content != nil %>
-                  <!-- THis should hide commnet if empty? -->
+                      <!-- THis should hide commnet if empty? -->
                   Comment: <%= comment.content %>
                 <% end %>
-            <% end %>
-          <% end %>
+              <% end %>
+         <% end %>
           </ul>
         <% end %>
-      </div>
+    </div>
 
 </div>
 

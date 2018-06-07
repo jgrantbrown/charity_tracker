@@ -5,10 +5,10 @@ studentShow()
 function studentShow(){
 $(`form.button_to`).click(function(e) {
      e.preventDefault();
-    
+
      let url = this.action
      $.get(url, function(student) {
-       debugger
+
        // Why does jquery not create the soucre?
        let source = (document.getElementById("index-template").innerHTML)
        // why is this not compliling template with each

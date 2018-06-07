@@ -1,5 +1,5 @@
+<div class="leftcolumnteacher">
 <%= @teacher.first_name %> <%= @teacher.last_name %>'s  Class
-
 
   <% @teacher.students.each do |s| %>
   <div class= 'student_box'>
@@ -8,9 +8,13 @@
     </div>
   <% end %>
 
-
-
    <% if current_user != nil && current_user.id == @teacher.user_id   %>
        <%= link_to "Add Student", edit_teacher_path(@teacher) %>
        <%= link_to "Add New Student",  new_teacher_student_path(@teacher) %>
    <% end %>
+</div>
+
+<div class="rightcolumnteacher">
+  <div class="student_details">
+  </div>
+</div>
