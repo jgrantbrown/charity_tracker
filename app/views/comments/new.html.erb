@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+
+  <%= form_for @pledge do |f| %>
+     Comment:
+     <!-- Add Comment? -->
+     <%= text_area(:comment, :content) %>
+     <%= hidden_field( :comment, :user_id, :value => current_user.id ) %>
+
+     Amount:
+     <!-- USED MAX NUMBER TO PREVENT "BIGNUM" errors -->
+     <!--  Expected below to pass params[:pledge][:amount] not working -->
+     <!--<  number_field_tag(:pledge,:amount, min:0, max:4611686018427387903 ) >  -->
+     <%=  number_field_tag(:amount,:amount_pledged, min:0, max:4611686018427387903 ) %>
+     <div class="field_with_errors">
+       <%= @pledge.errors.full_messages if !@pledge.errors.empty? %>
+     </div>
+
+
+
+       <%= hidden_field(:student,:student_id, :value => @student.id ) %>
+       <%= hidden_field(:charity,:charity_id, :value => c.id) %>
+       <%= f.submit "Make Pledge" %>
+    <% end %>
+
+
+<% else %>
+    <%= button_to "Sign Up to Pledge", new_user_registration_path,{method: 'get', class: "pledge_btn"} %>
+<% end %>

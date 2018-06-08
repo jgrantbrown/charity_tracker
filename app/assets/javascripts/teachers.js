@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 teachersList()
+
 })
 
 function teachersList(){

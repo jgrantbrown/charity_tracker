@@ -13,6 +13,7 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
+    # REfactor to have new forms in own view
     @pledge = Pledge.new
     @comment = Comment.new
     render json: @student

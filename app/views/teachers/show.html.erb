@@ -15,6 +15,34 @@
 </div>
 
 <div class="rightcolumnteacher">
-  <div class="student_details">
+
+</div>
+
+<script id="student-template" type="text/x-handlebars-template">
+  <div class="detailsStudentShow">
+    <h1> Profile Page for {{first_name}} </h1>
+
+    <p> Charities  Raising money for and current amount<p>
+    <div class = "student_section">
+      <div class = "boxes">
+        {{#each charities}}
+        <div class= "charity_box">
+          {{name}}
+          <p>{{description}}</p>
+        {{/each}}
+      </div>
+          <p> Goal:</p>
+          <!-- MAy need to chang this for matching amount to each charity of student  -->
+
+      <!-- HOw do I access this  -->
+          <p> Amount Pledged:
   </div>
 </div>
+</div>
+
+</script>
+
+<script id="comment-template" type="text/x-handlebars-template">
+  <div class="comment_form">
+  </div>
+</script>

@@ -1,5 +1,10 @@
 class CommentsController < ApplicationController
 
+  def new
+    @comment = Comment.new
+    
+    render layout: false
+  end
   # Comments created via pledge
   # def create
   #

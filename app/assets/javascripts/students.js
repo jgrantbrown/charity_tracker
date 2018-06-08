@@ -1,26 +1,34 @@
 $(document).ready(function(){
-studentShow()
+  eventListeners()
 })
 
-function studentShow(){
-$(`form.button_to`).click(function(e) {
-     e.preventDefault();
 
-     let url = this.action
+
+function eventListeners(){
+  $(`form.button_to`).click(function(e) {
+    e.preventDefault();
+    let url = this.action
+    studentShow(url)
+    newCommentForm(url)
+  })
+}
+
+
+function studentShow(url){
      $.get(url, function(student) {
-
        // Why does jquery not create the soucre?
-       let source = (document.getElementById("index-template").innerHTML)
+       let source = (document.getElementById("student-template").innerHTML)
        // why is this not compliling template with each
-
        let template = Handlebars.compile(source)
-
        // Pass {{#each this}} for teachers
        // clear the html not to double render
-       $(".teacherList").html("")
-       $(".teacherList").append(template(teachers))
+       $(".student_details").html("")
+       $(".rightcolumnteacher").html(template(student))
       // Need to render more cleannly
      });
+  }
 
-  })
+
+function newCommentForm(){
+  debugger
 }
