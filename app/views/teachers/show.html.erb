@@ -1,26 +1,27 @@
-<div class="leftcolumnteacher">
-<%= @teacher.first_name %> <%= @teacher.last_name %>'s  Class
+<div id="main">
+  <div class="leftcolumnteacher">
+  <%= @teacher.first_name %> <%= @teacher.last_name %>'s  Class
 
-  <% @teacher.students.each do |s| %>
-  <div class= 'student_box'>
-      <%= s.first_name %> <%= s.last_name %>
-      <%= button_to "Students Profile", teacher_student_path(s), {method: 'get', class: "some-class"} %>
-    </div>
-  <% end %>
+    <% @teacher.students.each do |s| %>
+    <div class= 'student_box'>
+        <%= s.first_name %> <%= s.last_name %>
+        <%= button_to "Students Profile", teacher_student_path(s), {method: 'get', class: "some-class"} %>
+      </div>
+    <% end %>
 
-   <% if current_user != nil && current_user.id == @teacher.user_id   %>
-       <%= link_to "Add Student", edit_teacher_path(@teacher) %>
-       <%= link_to "Add New Student",  new_teacher_student_path(@teacher) %>
-   <% end %>
-</div>
+     <% if current_user != nil && current_user.id == @teacher.user_id   %>
+         <%= link_to "Add Student", edit_teacher_path(@teacher) %>
+         <%= link_to "Add New Student",  new_teacher_student_path(@teacher) %>
+     <% end %>
+  </div>
 
-<div class="rightcolumnteacher">
-
+  <div class="rightcolumnteacher">
+  </div>
 </div>
 
 <script id="student-template" type="text/x-handlebars-template">
-  <div class="detailsStudentShow">
-    <h1> Profile Page for {{first_name}} </h1>
+
+    <h1> Student {{first_name}} Details </h1>
 
     <p> Charities  Raising money for and current amount<p>
     <div class = "student_section">
@@ -38,11 +39,11 @@
           <p> Amount Pledged:
   </div>
 </div>
-</div>
+
 
 </script>
 
-<script id="comment-template" type="text/x-handlebars-template">
-  <div class="comment_form">
+<script id="pledge-template" type="text/x-handlebars-template">
+  <div class="pledge_form">
   </div>
 </script>

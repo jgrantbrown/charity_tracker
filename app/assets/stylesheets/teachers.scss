@@ -19,11 +19,22 @@
  margin: 10px;
 }
 
+#main{
+  margin: 0 auto;
+  display: flex;
+}
 
+#main div {
+  flex-grow: 0;
+  flex-shrink: 0;
+
+}
 .leftcolumnteacher{
-  width:20%
+  width:15%;
+  float: left;
 
 }
 .rightcolumnteacher{
-  width:80%
+  width:75%;
+
 }

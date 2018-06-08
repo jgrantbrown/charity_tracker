@@ -2,6 +2,10 @@ class PledgesController < ApplicationController
 
  attr_accessor :student_id,:charity_id
 
+ def new
+   @pledge = Pledge.new
+   render layout: false
+ end
   def create
     @pledge = Pledge.new
     @pledge.amount = params[:amount]

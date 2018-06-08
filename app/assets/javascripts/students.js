@@ -9,10 +9,9 @@ function eventListeners(){
     e.preventDefault();
     let url = this.action
     studentShow(url)
-    newCommentForm(url)
+    newPledgeForm(url)
   })
 }
-
 
 function studentShow(url){
      $.get(url, function(student) {
@@ -29,6 +28,6 @@ function studentShow(url){
   }
 
 
-function newCommentForm(){
+function newPledgeForm(url){
   debugger
 }
