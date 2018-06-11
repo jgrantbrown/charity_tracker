@@ -8,8 +8,9 @@ function eventListeners(){
   $(`form.button_to`).click(function(e) {
     e.preventDefault();
     let url = this.action
+    debugger
     studentShow(url)
-    newPledgeForm(url)
+    // newPledgeForm(url)
   })
 }
 

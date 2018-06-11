@@ -3,8 +3,9 @@
   <%= @teacher.first_name %> <%= @teacher.last_name %>'s  Class
     <% @teacher.students.each do |s| %>
     <div class= 'student_box'>
+
         <%= s.first_name %> <%= s.last_name %>
-        <%= button_to "Students Profile", teacher_student_path(s), {method: 'get', class: "some-class"} %>
+        <%= button_to "Students Profile", teacher_student_path(@teacher ,s), {method: 'get', class: "some-class"} %>
       </div>
     <% end %>
      <% if current_user != nil && current_user.id == @teacher.user_id   %>
