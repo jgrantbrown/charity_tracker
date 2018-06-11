@@ -1,14 +1,12 @@
 <div id="main">
   <div class="leftcolumnteacher">
   <%= @teacher.first_name %> <%= @teacher.last_name %>'s  Class
-
     <% @teacher.students.each do |s| %>
     <div class= 'student_box'>
         <%= s.first_name %> <%= s.last_name %>
         <%= button_to "Students Profile", teacher_student_path(s), {method: 'get', class: "some-class"} %>
       </div>
     <% end %>
-
      <% if current_user != nil && current_user.id == @teacher.user_id   %>
          <%= link_to "Add Student", edit_teacher_path(@teacher) %>
          <%= link_to "Add New Student",  new_teacher_student_path(@teacher) %>
@@ -21,12 +19,13 @@
 
 <script id="student-template" type="text/x-handlebars-template">
 
-    <h1> Student {{first_name}} Details </h1>
+    <h1> Student {{first_name}} {{last_name}}  Details </h1>
 
     <p> Charities  Raising money for and current amount<p>
     <div class = "student_section">
       <div class = "boxes">
         {{#each charities}}
+        <!-- WHile only rendering ORCA for all students?  -->
         <div class= "charity_box">
           {{name}}
           <p>{{description}}</p>
@@ -35,8 +34,11 @@
           <p> Goal:</p>
           <!-- MAy need to chang this for matching amount to each charity of student  -->
 
-      <!-- HOw do I access this  -->
-          <p> Amount Pledged:
+          <p> Amount Pledged:</p>
+          {{#each pledges}}
+            <p>Amount: ${{amount}}</p>
+            <!-- Need pledge.comments -->
+          {{/each}}
   </div>
 </div>
 
