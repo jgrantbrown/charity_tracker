@@ -8,7 +8,6 @@ function eventListeners(){
   $(`form.button_to`).click(function(e) {
     e.preventDefault();
     let url = this.action
-    debugger
     studentShow(url)
     // newPledgeForm(url)
   })
@@ -25,10 +24,8 @@ function studentShow(url){
        $(".student_details").html("")
        $(".rightcolumnteacher").html(template(student))
       // Need to render more cleannly
-
-
      });
-    // Need to access the student_id to render pleadges associated with student?
+
   }
 
 
