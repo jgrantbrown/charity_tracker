@@ -38,8 +38,11 @@
           <p> Amount Pledged:</p>
           {{#each pledges}}
             <p>Amount: ${{amount}}</p>
+
             <!-- Need pledge.comments -->
-            <p>Comment: {{comment.content}}</p>
+            {{#each comments}}
+              <p>Comment: {{content}}</p>
+            {{/each}}
 
           {{/each}}
   </div>

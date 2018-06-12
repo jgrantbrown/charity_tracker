@@ -15,6 +15,7 @@ function eventListeners(){
 
 function studentShow(url){
      $.get(url, function(student) {
+    
        // Why does jquery not create the soucre?
        let source = (document.getElementById("student-template").innerHTML)
        // why is this not compliling template with each

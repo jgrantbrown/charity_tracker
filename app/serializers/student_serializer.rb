@@ -3,4 +3,5 @@ class StudentSerializer < ActiveModel::Serializer
   belongs_to :teacher
   has_many :charities
   has_many :pledges
+  
 end
