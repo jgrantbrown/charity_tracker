@@ -15,43 +15,40 @@
   </div>
 
   <div class="rightcolumnteacher">
+    <div class="studentinfo">
+    </div>
+    <div class="pledge_form">
+    </div>
   </div>
+
 </div>
 
 <script id="student-template" type="text/x-handlebars-template">
-
     <h1> Student {{first_name}} {{last_name}}  Details </h1>
-
     <p> Charities  Raising money for and current amount<p>
     <div class = "student_section">
       <div class = "boxes">
         {{#each charities}}
         <!-- WHile only rendering ORCA for all students?  -->
-        <div class= "charity_box">
-          {{name}}
-          <p>{{description}}</p>
+          <div class= "charity_box">
+            {{name}}
+            <p>{{description}}</p>
         {{/each}}
-      </div>
+          </div>
           <p> Goal:</p>
           <!-- MAy need to chang this for matching amount to each charity of student  -->
-
           <p> Amount Pledged:</p>
           {{#each pledges}}
             <p>Amount: ${{amount}}</p>
-
             <!-- Need pledge.comments -->
             {{#each comments}}
               <p>Comment: {{content}}</p>
             {{/each}}
-
           {{/each}}
-  </div>
-</div>
-
-
+        </div>
+      </div>
 </script>
 
 <script id="pledge-template" type="text/x-handlebars-template">
-  <div class="pledge_form">
-  </div>
+
 </script>
