@@ -7,6 +7,7 @@ class PledgesController < ApplicationController
    render layout: false
  end
   def create
+    binding.pry
     @pledge = Pledge.new
     @pledge.amount = params[:amount]
     @pledge.student_id = params[:student][:student_id]
