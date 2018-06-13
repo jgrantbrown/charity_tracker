@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 
 function eventListeners(){
+  // Rename or use a class to narrow down button click
   $(`form.button_to`).click(function(e) {
     e.preventDefault();
     var url = this.action
@@ -27,16 +28,3 @@ function studentShow(url){
      });
 
   }
-
-
-function newPledgeForm(url){
-
-  $.get('/pledges/new', function(e){
-    console.log(url)
-    console.log(e)
-    debugger
-      $("div.pledge_form").html(e)
-  })
-  // $("div.pledge_form").html("<div> Add a Pledge Form Here</div>")
-
-}

@@ -17,6 +17,8 @@
 //= require handlebars
 //= require teachers
 //= require students
+//= require pledges
+
 
 
 //= require_tree ./templates
