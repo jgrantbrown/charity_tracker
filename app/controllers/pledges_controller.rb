@@ -3,11 +3,12 @@ class PledgesController < ApplicationController
  attr_accessor :student_id,:charity_id
 
  def new
+
    @pledge = Pledge.new
    render layout: false
  end
   def create
-    binding.pry
+
     @pledge = Pledge.new
     @pledge.amount = params[:amount]
     @pledge.student_id = params[:student][:student_id]
