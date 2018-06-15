@@ -29,7 +29,8 @@
     <div class = "student_section">
       <div class = "boxes">
         {{#each charities}}
-        <!-- WHile only rendering ORCA for all students?  -->
+        <!-- NEED ACCESS TO THIS CHARITY ID for new PLedge form and controller -->
+        <!-- {{id}} -->
           <div class= "charity_box">
             {{name}}
             <p>{{description}}</p>
@@ -38,6 +39,8 @@
           <p> Goal:</p>
           <!-- MAy need to chang this for matching amount to each charity of student  -->
           <p> Amount Pledged:</p>
+          <!-- How to refactor for handlebars? -->
+          <!-- $<= @student.amount_pledged() %> -->
           {{#each pledges}}
             <p>Amount: ${{amount}}</p>
             <!-- Need pledge.comments -->
@@ -47,8 +50,4 @@
           {{/each}}
         </div>
       </div>
-</script>
-
-<script id="pledge-template" type="text/x-handlebars-template">
-
 </script>

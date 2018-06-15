@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     resources :students, only: [:index, :show, :new, :create]
   end
 
+  resources :students do
+    resources :pledges, only: [:new, :create]
+
+  end
+
   resources :students, only: [:index, :show, :edit, :update]
   resources :comments, only: [:new, :create]
   resources :pledges, only: [:new, :create]

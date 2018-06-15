@@ -10,19 +10,10 @@
 
 
 function newPledgeForm(url){
-
-  // HOw do I pass charity_id and student_id to this form
-  $.get('/pledges/new', function(e){
-    debugger
-      $.get(url,function(student){
-        console.log(student)
+  var split = url.split('/')
+  var id = split[split.length - 1]
+  // HOw do I pass charity_id  this form
+  $.get(`/students/${id}/pledges/new`, function(e){
         $("div.pledge_form").html(e)
-
-      })
-      // console.log(e)
-      // $("div.pledge_form").html(e)
     })
-    // $.get(url, function(student) {
-    //   var studentID = student.id
-    // })
 }

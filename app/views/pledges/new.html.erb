@@ -15,7 +15,7 @@
        <%= @pledge.errors.full_messages if !@pledge.errors.empty? %>
      </div>
 
-       <!-- <= hidden_field(:student,:student_id, :value => student.id ) %> -->
+      <input type="hidden" name="student[student_id]" value="<%= @student.id%>">
        <!-- <= hidden_field(:charity,:charity_id, :value => c.id) %>  -->
        <%= f.submit "Make Pledge" %>
     <% end %>
