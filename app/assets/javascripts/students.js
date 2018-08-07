@@ -9,16 +9,11 @@ $(document).ready(function(){
       var url = this.action
       studentShow(url)
       newPledgeForm(url)
+      
     })
-
-
-
   }
-// HAving trouble hijacking the pledge submit form
 
-
-
-function studentShow(url){
+  function studentShow(url){
      $.get(url, function(student) {
        // Why does jquery not create the soucre?
        let source = (document.getElementById("student-template").innerHTML)
