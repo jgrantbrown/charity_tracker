@@ -25,6 +25,12 @@
 
 <script id="student-template" type="text/x-handlebars-template">
     <h1> Student {{first_name}} {{last_name}}  Details </h1>
+    const studentId = {{id}}
+    console.log({{id}})
+      <!--HOw do I refactor for handle bar template  -->
+    <!-- < if current_user == @student >
+      <=  button_to "Edit Profile" > -->
+    <!-- < end %> -->
     <p> Charities  Raising money for and current amount<p>
     <div class = "student_section">
       <div class = "boxes">
@@ -34,6 +40,7 @@
           <div class= "charity_box">
             {{name}}
             <p>{{description}}</p>
+            <button onClick="console.log(this.id)" data-charity="{{id}}" data-student="" class="pledgeForm">Add a Pledge to {{name}} </button>
         {{/each}}
           </div>
           <p> Goal:</p>

@@ -13,7 +13,8 @@ function newPledgeForm(url){
   var split = url.split('/')
   var id = split[split.length - 1]
   // HOw do I pass charity_id  this form
-  $.get(`/students/${id}/pledges/new`, function(e){
-        $("div.pledge_form").html(e)
+  $.get(`/students/${id}/pledges/new`, function(el){
+        $("div.pledge_form").html(el)
     })
+    
 }

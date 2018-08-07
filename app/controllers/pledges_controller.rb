@@ -3,6 +3,7 @@ class PledgesController < ApplicationController
  attr_accessor :student_id,:charity_id
 
  def new
+   # find a charity_id from show
    if params[:student_id]
      @student = Student.find(params[:student_id])
      @pledge = Pledge.new
@@ -11,11 +12,11 @@ class PledgesController < ApplicationController
  end
 
   def create
-    binding.pry
+
     @pledge = Pledge.new
     @pledge.amount = params[:amount]
     @pledge.student_id = params[:student][:student_id]
-    @pledge.charity_id = params[:charity][:charity_id]
+    @pledge.charity_id = params[:pledge][:charity_id]
     @pledge.user_id = current_user.id
     if @pledge.save
         comment = Comment.new(comment_params)
@@ -23,6 +24,7 @@ class PledgesController < ApplicationController
           comment.pledge_id = @pledge.id
           comment.save
         end
+        # Rendering the api not the template?
         redirect_to student_path( params[:student][:student_id])
     else
       @student = Student.find(params[:student][:student_id])
