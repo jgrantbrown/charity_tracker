@@ -1,5 +1,6 @@
 $(document).ready(function(){
   eventListeners()
+  
 })
 
   function eventListeners(){
@@ -9,7 +10,6 @@ $(document).ready(function(){
       var url = this.action
       studentShow(url)
       newPledgeForm(url)
-      
     })
   }
 

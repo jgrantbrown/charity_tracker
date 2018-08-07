@@ -15,11 +15,12 @@ $(document).ready(function(){
     // HOw do I pass charity_id  this form
     $.get(`/students/${id}/pledges/new`, function(el){
           $("div.pledge_form").html(el)
+          newPledgeSubmission()
       })
 
   }
 
-  // THis works in console but can not hijack it in editor?
+  // Add this to newPledgeForm so listener is availbale after form is renderd
   function newPledgeSubmission(){
     $(`form.new_pledge`).submit(function(e){
       e.preventDefault();
