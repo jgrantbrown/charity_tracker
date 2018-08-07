@@ -24,6 +24,7 @@ $(document).ready(function(){
   function newPledgeSubmission(){
     $(`form.new_pledge`).submit(function(e){
       e.preventDefault();
-      alert("found it")
+      console.log($(this).serializeArray())
+
     })
   }
