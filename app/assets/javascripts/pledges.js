@@ -4,9 +4,12 @@ $(document).ready(function(){
 // function Pledge(attributes){
 //   this.amount = attributes.amount
 //   this.id =   attributes.id
-//   this.student_id = attributes.student_id
-//   this.charity_id = attributes.charity_id
-//   this.user_id = attributes.current_user.id
+//   this.studentId = attributes.student_id
+//   this.charityId = attributes.charity_id
+//   this.userId = attributes.current_user.id
+// }
+//  Pledge.prototype.formatHTML = function (){
+//  RETURN `${this.comment} ${this.amount}; `
 // }
 
   function newPledgeForm(url){
@@ -24,7 +27,19 @@ $(document).ready(function(){
   function newPledgeSubmission(){
     $(`form.new_pledge`).submit(function(e){
       e.preventDefault();
-      console.log($(this).serializeArray())
+      
+      // save info back as pledge to db
+      $.ajax({
+          type: "POST",
+          url: this.action,
+          data: ($(this).serialize()),
+          success: function(response){
+            debugger
+          },
 
+        });
+      // get return value of last pledge saved
+      // create js object form return value
+      // render to dom js object that is created
     })
   }

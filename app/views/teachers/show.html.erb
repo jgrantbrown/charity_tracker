@@ -25,7 +25,7 @@
 
 <script id="student-template" type="text/x-handlebars-template">
     <h1> Student {{first_name}} {{last_name}}  Details </h1>
-    
+
       <!--HOw do I refactor for handle bar template  -->
     <!-- < if current_user == @student >
       <=  button_to "Edit Profile" > -->
@@ -46,13 +46,15 @@
           <p> Amount Pledged:</p>
           <!-- How to refactor for handlebars? -->
           <!-- $<= @student.amount_pledged() %> -->
-          {{#each pledges}}
+          <div class="comments_section">
+            {{#each pledges}}
             <p>Amount: ${{amount}}</p>
             <!-- Need pledge.comments -->
             {{#each comments}}
               <p>Comment: {{content}}</p>
             {{/each}}
           {{/each}}
+        </div>
         </div>
       </div>
 </script>
