@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   end
 
   resources :students do
-    resources :pledges, only: [:new, :create]
+    resources :pledges, only: [:new, :create, :show]
 
   end
 
   resources :students, only: [:index, :show, :edit, :update]
   resources :comments, only: [:new, :create]
-  resources :pledges, only: [:new, :create]
+  resources :pledges, only: [:new, :create,:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  root to: "static#home"
 

@@ -25,7 +25,8 @@ class PledgesController < ApplicationController
           comment.save
         end
         # Rendering the api not the template?
-        redirect_to student_path( params[:student][:student_id])
+        # redirect_to student_path( params[:student][:student_id])
+        redirect_to pledge_path
     else
       @student = Student.find(params[:student][:student_id])
       @pledge
