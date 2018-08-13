@@ -8,7 +8,8 @@ function Pledge(amount ,comment){
 }
 
  Pledge.prototype.formatHTML = function (){
- Return `${this.comment} ${this.amount}; `
+
+   return `<p>Comment: ${this.comment} Amount: $${this.amount}</p> `
 }
 
   function newPledgeForm(url){
@@ -17,7 +18,8 @@ function Pledge(amount ,comment){
     // HOw do I pass charity_id  this form
     $.get(`/students/${id}/pledges/new`, function(el){
           $("div.pledge_form").html(el)
-          newPledgeSubmission()
+          
+
       })
 
   }
@@ -33,9 +35,9 @@ function Pledge(amount ,comment){
           url: this.action,
           data: ($(this).serialize()),
           success: function(response){
-            debugger
-            var newPledge = new Pledge(  response.amount,  response.comments[0].content )
-            console.log(newPledge.formatHTML)
+
+            newPledge = new Pledge(response.amount,response.comments[0].content)
+            $( ".new_pledge" ).html(newPledge.formatHTML())
 
           },
 
