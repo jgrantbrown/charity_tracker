@@ -18,12 +18,8 @@ $(document).ready(function(){
           $("div.pledge_form").html(el)
           newPledgeSubmission()
       })
-
   }
 
-  // Add this to newPledgeForm so listener is availbale after form is renderd
-  // but now when submmsion of pledge js redering fine but the form is over writen by a duplication of the
-  // js object pledge also?
   function newPledgeSubmission(){
     $(`form.new_pledge`).submit(function(e){
       e.preventDefault();
