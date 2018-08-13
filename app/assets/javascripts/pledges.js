@@ -1,16 +1,15 @@
 $(document).ready(function(){
 
 })
-// function Pledge(attributes){
-//   this.amount = attributes.amount
-//   this.id =   attributes.id
-//   this.studentId = attributes.student_id
-//   this.charityId = attributes.charity_id
-//   this.userId = attributes.current_user.id
-// }
-//  Pledge.prototype.formatHTML = function (){
-//  RETURN `${this.comment} ${this.amount}; `
-// }
+
+function Pledge(amount ,comment){
+  this.amount = amount
+  this.comment = comment
+}
+
+ Pledge.prototype.formatHTML = function (){
+ Return `${this.comment} ${this.amount}; `
+}
 
   function newPledgeForm(url){
     var split = url.split('/')
@@ -27,7 +26,7 @@ $(document).ready(function(){
   function newPledgeSubmission(){
     $(`form.new_pledge`).submit(function(e){
       e.preventDefault();
-      
+
       // save info back as pledge to db
       $.ajax({
           type: "POST",
@@ -35,6 +34,9 @@ $(document).ready(function(){
           data: ($(this).serialize()),
           success: function(response){
             debugger
+            var newPledge = new Pledge(  response.amount,  response.comments[0].content )
+            console.log(newPledge.formatHTML)
+
           },
 
         });
