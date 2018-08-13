@@ -41,9 +41,9 @@
             <p>{{description}}</p>
         {{/each}}
           </div>
-          <p> Goal:</p>
+          <!-- <p> Goal:</p> -->
           <!-- MAy need to chang this for matching amount to each charity of student  -->
-          <p> Amount Pledged:</p>
+          <!-- <p> Amount Pledged:</p> -->
           <!-- How to refactor for handlebars? -->
           <!-- $<= @student.amount_pledged() %> -->
           <div class="comments_section">
@@ -54,7 +54,9 @@
                   <p>Comment: {{content}}</p>
               {{/each}}
             {{/each}}
-          <div class="new_pledge" ></div>
+          <div class="newest_pledge" >
+            <!-- div for inserting newsest pledge via JS  -->
+          </div>
         </div>
         </div>
       </div>

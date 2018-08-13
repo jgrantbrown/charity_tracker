@@ -1,6 +1,6 @@
 $(document).ready(function(){
   eventListeners()
-  
+
 })
 
   function eventListeners(){
