@@ -13,11 +13,10 @@ class PledgesController < ApplicationController
 
  def show
    @pledge = Pledge.find(params[:id])
-   render json: @pledge
+   render json: @pledge, :layout => false
  end
 
   def create
-    
     @pledge = Pledge.new
     @pledge.amount = params[:amount]
     @pledge.student_id = params[:student][:student_id]
@@ -31,7 +30,9 @@ class PledgesController < ApplicationController
         end
         # Rendering the api not the template?
         # redirect_to student_path( params[:student][:student_id])
-        redirect_to pledge_path(@pledge)
+
+
+         redirect_to pledge_path(@pledge)
     else
       @student = Student.find(params[:student][:student_id])
       @pledge

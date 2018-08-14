@@ -23,6 +23,7 @@ $(document).ready(function(){
   function newPledgeSubmission(){
     $(`form.new_pledge`).submit(function(e){
       e.preventDefault();
+
       $.ajax({
           type: "POST",
           url: this.action,
@@ -30,7 +31,10 @@ $(document).ready(function(){
           success: function(response){
             newPledge = new Pledge(response.amount,response.comments[0].content)
             $( ".newest_pledge" ).append(newPledge.formatHTML())
-
+            $.get(`/students/${response.student_id}/pledges/new`, function(el){
+                  $("div.pledge_form").html(el)
+                  newPledgeSubmission()
+              })
           },
         });
     })
