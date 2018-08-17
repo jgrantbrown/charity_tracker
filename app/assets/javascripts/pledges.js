@@ -23,12 +23,14 @@ $(document).ready(function(){
   function newPledgeSubmission(){
     $(`form.new_pledge`).submit(function(e){
       e.preventDefault();
-
+      debugger
       $.ajax({
+
           type: "POST",
           url: this.action,
           data: ($(this).serialize()),
           success: function(response){
+              // response does not show the charity_id but does save correctly?
             newPledge = new Pledge(response.amount,response.comments[0].content)
             $( ".newest_pledge" ).append(newPledge.formatHTML())
             $.get(`/students/${response.student_id}/pledges/new`, function(el){
