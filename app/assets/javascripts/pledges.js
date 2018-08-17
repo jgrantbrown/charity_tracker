@@ -8,7 +8,7 @@ $(document).ready(function(){
   }
 
  Pledge.prototype.formatHTML = function (){
-   return `<p>Comment: ${this.comment} Amount: $${this.amount}</p> `
+   return `THANK YOU FOR THE PLEDGE:<p>Comment: ${this.comment} Amount: $${this.amount}</p> `
  }
 
  function newPledgeForm(url){
@@ -25,13 +25,10 @@ $(document).ready(function(){
       e.preventDefault();
 
       $.ajax({
-
           type: "POST",
           url: this.action,
           data: ($(this).serialize()),
           success: function(response){
-            debugger
-              // response does not show the charity_id but does save correctly?
             newPledge = new Pledge(response.amount,response.comments[0].content)
             $( ".newest_pledge" ).append(newPledge.formatHTML())
             $.get(`/students/${response.student_id}/pledges/new`, function(el){
