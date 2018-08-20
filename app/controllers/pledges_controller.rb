@@ -17,7 +17,6 @@ class PledgesController < ApplicationController
  end
 
   def create
-
     @pledge = Pledge.new
     @pledge.amount = params[:amount]
     @pledge.student_id = params[:student][:student_id]
