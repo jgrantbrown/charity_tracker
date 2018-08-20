@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   resources :students do
     resources :pledges, only: [:new, :create, :show]
-
   end
 
   resources :students, only: [:index, :show, :edit, :update]
