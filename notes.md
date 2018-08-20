@@ -1,4 +1,7 @@
 
+
+Fix Link for teachers from myprofile show page
+
 Charity Api to use
 https://api.data.charitynavigator.org/v2
 
