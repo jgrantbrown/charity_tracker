@@ -22,6 +22,8 @@ class Student < ApplicationRecord
      # user.email
   end
 
+  
+
 
 
 end

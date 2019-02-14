@@ -15,7 +15,9 @@
   </div>
 
   <div class="rightcolumnteacher">
+
     <div class="studentinfo">
+
     </div>
     <div class="pledge_form">
     </div>
@@ -31,7 +33,9 @@
       <=  button_to "Edit Profile" > -->
     <!-- < end %> -->
     <p> Charities  Raising money for and current amount<p>
+
     <div class = "student_section">
+        <a href=`/students/{{id}}` class ="pledge-sort"> Sort Pledges</a>
       <div class = "boxes">
         {{#each charities}}
         <!-- NEED ACCESS TO THIS CHARITY ID for new PLedge form and controller -->
@@ -46,7 +50,10 @@
           <!-- <p> Amount Pledged:</p> -->
           <!-- How to refactor for handlebars? -->
           <!-- $<= @student.amount_pledged() %> -->
+
           <div class="comments_section">
+
+
            {{#each pledges}}
               <p>Amount: ${{amount}}</p>
                 <!-- Need pledge.comments -->

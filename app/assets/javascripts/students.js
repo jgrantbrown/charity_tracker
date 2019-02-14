@@ -24,5 +24,6 @@ $(document).ready(function(){
        $(".student_details").html("")
        $(".studentinfo").html(template(student))
       // Need to render more cleannly
+      sortPledge()
      });
   }

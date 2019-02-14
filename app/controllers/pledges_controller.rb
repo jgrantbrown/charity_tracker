@@ -11,6 +11,8 @@ class PledgesController < ApplicationController
    end
  end
 
+ 
+
  def show
    @pledge = Pledge.find(params[:id])
    render json: @pledge, :layout => false

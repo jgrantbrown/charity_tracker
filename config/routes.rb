@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :students do
-    resources :pledges, only: [:new, :create, :show]
+    resources :pledges, only: [:new, :create, :show , :index]
   end
 
   resources :students, only: [:index, :show, :edit, :update]
